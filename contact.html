@@ -1075,17 +1075,7 @@
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Immediately show success message
-    const successHTML = `
-        <div class="success-message">
-            <div class="success-icon">✓</div>
-            <h3>Thank you!</h3>
-            <p>Your message is being sent. I’ll get back to you shortly.</p>
-        </div>
-    `;
-    form.innerHTML = successHTML;
-
-    // Collect form data
+    // 1️⃣ Collect form data first
     const formData = new FormData(form);
     const data = {
         name: formData.get('name'),
@@ -1099,14 +1089,26 @@ form.addEventListener('submit', (e) => {
         wordCount: formData.get('word-count')
     };
 
-    // Send data to Google Sheets
+    // 2️⃣ Immediately show success message (after collecting data)
+    const successHTML = `
+        <div class="success-message">
+            <div class="success-icon">✓</div>
+            <h3>Thank you!</h3>
+            <p>Your message is being sent. I’ll get back to you shortly.</p>
+        </div>
+    `;
+    form.innerHTML = successHTML;
+
+    // 3️⃣ Send data to Google Sheets in background
     fetch("https://script.google.com/macros/s/AKfycbywW3oPkZlL0UYyfbXis4STmPwWSpV6H5Dp17sxFyummJdm9RCBSJ8zcI8xBNjic5I1SQ/exec", {
         method: "POST",
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" }
     })
+    .then(() => console.log("Form submitted successfully"))
     .catch(err => console.error("Form submission failed:", err));
 });
+
 
     </script>
 </body>
