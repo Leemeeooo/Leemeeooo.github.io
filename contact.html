@@ -1072,11 +1072,12 @@
             });
             
             // Form submission
-form.addEventListener('submit', (e) => {
+// Form submission
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // 1️⃣ Collect form data first
     const formData = new FormData(form);
+
     const data = {
         name: formData.get('name'),
         email: formData.get('email'),
@@ -1089,26 +1090,61 @@ form.addEventListener('submit', (e) => {
         wordCount: formData.get('word-count')
     };
 
-    // 2️⃣ Immediately show success message (after collecting data)
-    const successHTML = `
-        <div class="success-message">
-            <div class="success-icon">✓</div>
-            <h3>Thank you!</h3>
-            <p>Your message is being sent. I’ll get back to you shortly.</p>
-        </div>
-    `;
-    form.innerHTML = successHTML;
+    try {
+        // Send data to Google Sheets via Apps Script
+        await fetch("YOUR_DEPLOYED_WEB_APP_URL_HERE", {
+            method: "POST",
+            mode: "no-cors",  // Keeps it simple, Apps Script handles storage & emails
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
 
-    // 3️⃣ Send data to Google Sheets in background
-    fetch("https://script.google.com/macros/s/AKfycbywW3oPkZlL0UYyfbXis4STmPwWSpV6H5Dp17sxFyummJdm9RCBSJ8zcI8xBNjic5I1SQ/exec", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" }
-    })
-    .then(() => console.log("Form submitted successfully"))
-    .catch(err => console.error("Form submission failed:", err));
+        // Animate form submission
+        anime({
+            targets: '.contact-form',
+            scale: [1, 0.98, 1],
+            duration: 600,
+            easing: 'easeInOutQuad',
+            complete: () => {
+                // Show success message
+                const successHTML = `
+                    <div class="success-message">
+                        <div class="success-icon">✓</div>
+                        <h3>Thank you for your message!</h3>
+                        <p>We'll get back to you within 24 hours to discuss your project.</p>
+                    </div>
+                `;
+                
+                document.querySelector('.contact-form').innerHTML = successHTML;
+                
+                anime({
+                    targets: '.success-message',
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 800,
+                    easing: 'easeOutCubic'
+                });
+            }
+        });
+
+    } catch (err) {
+        console.error("Form submission failed:", err);
+        alert("Oops! Something went wrong. Please try again.");
+    }
 });
 
+// Real-time validation
+document.querySelectorAll('.form-input, .form-textarea').forEach(field => {
+    field.addEventListener('blur', () => {
+        if (field.hasAttribute('required') && !field.value.trim()) {
+            field.classList.add('error');
+        } else {
+            field.classList.remove('error');
+        }
+    });
+});
 
     </script>
 </body>
