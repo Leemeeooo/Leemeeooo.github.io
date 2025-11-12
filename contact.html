@@ -912,13 +912,13 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="social-links">
-                <a href="#" class="social-link" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/elizabeth-efeelobari-b687b0218" class="social-link" aria-label="LinkedIn">
                     <span>in</span>
                 </a>
                 <a href="#" class="social-link" aria-label="Twitter">
                     <span>tw</span>
                 </a>
-                <a href="#" class="social-link" aria-label="Email">
+                <a href="efeelobarielizabeth@gmail.com" class="social-link" aria-label="Email">
                     <span>✉</span>
                 </a>
             </div>
@@ -1072,9 +1072,33 @@
             });
             
             // Form submission
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        company: formData.get('company'),
+        projectType: formData.get('project-type'),
+        timeline: formData.get('timeline'),
+        description: formData.get('message'),
+        budget: formData.get('budget'),
+        wordCount: formData.get('word-count')
+    };
+
+    try {
+        // Send data to Google Sheets via Apps Script
+        await fetch("https://script.google.com/macros/s/AKfycbywW3oPkZlL0UYyfbXis4STmPwWSpV6H5Dp17sxFyummJdm9RCBSJ8zcI8xBNjic5I1SQ/exec", {
+            method: "POST",
+            mode: "no-cors",  // Keeps it simple, Apps Script handles storage & emails
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
                 // Animate form submission
                 anime({
                     targets: '.contact-form',
@@ -1103,6 +1127,12 @@
                     }
                 });
             });
+                        
+            } catch (err) {
+                console.error("Form submission failed:", err);
+                alert("Oops! Something went wrong. Please try again.");
+            }
+        });
             
             // Real-time validation
             document.querySelectorAll('.form-input, .form-textarea').forEach(field => {
