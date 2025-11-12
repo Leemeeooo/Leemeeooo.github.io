@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Elizabeth Efeelobari | Professional Writing Samples</title>
+    <meta name="description" content="Explore Elizabeth Efeelobari's portfolio of articles covering technology, health, crime, entertainment, and culture. Professional writing samples and published work.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-dark: #1a1a1a;
+            --primary-light: #f8f6f0;
+            --accent-coral: #d4a574;
+            --accent-sage: #8b9a8b;
+            --accent-lavender: #c8b5d1;
+            --warm-gray: #9b9b9b;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 246, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-coral);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-coral);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .portfolio-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #f0ede5 100%);
+            text-align: center;
+        }
+        
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--accent-coral);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Portfolio Stats */
+        .portfolio-stats {
+            padding: 4rem 2rem;
+            background: var(--primary-light);
+        }
+        
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.08);
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-coral);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--warm-gray);
+            font-weight: 600;
+        }
+        
+        /* Filter Section */
+        .filter-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f0ede5 0%, var(--primary-light) 100%);
+        }
+        
+        .filter-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .filter-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 300px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--accent-sage);
+            border-radius: 25px;
+            font-size: 1rem;
+            background: white;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-input:focus {
+            border-color: var(--accent-coral);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--accent-sage);
+            background: transparent;
+            color: var(--primary-dark);
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent-coral);
+            border-color: var(--accent-coral);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Portfolio Grid */
+        .portfolio-grid {
+            padding: 2rem 0;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(26, 26, 26, 0.15);
+        }
+        
+        .item-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover .item-image {
+            transform: scale(1.05);
+        }
+        
+        .item-content {
+            padding: 1.5rem;
+        }
+        
+        .item-category {
+            display: inline-block;
+            background: var(--accent-coral);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .item-excerpt {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .item-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--accent-sage);
+        }
+        
+        .read-time::before {
+            content: '⏱ ';
+            margin-right: 0.25rem;
+        }
+        
+        .publish-date::before {
+            content: '📅 ';
+            margin-right: 0.25rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 26, 0.8);
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 20px;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 30px 60px rgba(26, 26, 26, 0.3);
+        }
+        
+        .modal-header {
+            position: relative;
+            padding: 2rem;
+            border-bottom: 1px solid #f0ede5;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--accent-coral);
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+        
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .modal-category {
+            display: inline-block;
+            background: var(--accent-coral);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-text {
+            color: var(--warm-gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            padding-top: 1rem;
+            border-top: 1px solid #f0ede5;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-coral) 0%, #c19660 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--accent-sage);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--accent-sage);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Load More Button */
+        .load-more-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: var(--primary-light);
+        }
+        
+        .load-more-btn {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid var(--accent-coral);
+            color: var(--accent-coral);
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .load-more-btn:hover {
+            background: var(--accent-coral);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--primary-light);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(248, 246, 240, 0.1);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-coral);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-up.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        
+        .fade-in.animate-in {
+            opacity: 1;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .filter-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .search-box {
+                max-width: 100%;
+            }
+            
+            .filter-buttons {
+                justify-content: center;
+            }
+            
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                margin: 1rem;
+                max-width: calc(100% - 2rem);
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Hidden items for load more functionality */
+        .portfolio-item.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Elizabeth Efeelobari</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="portfolio-hero">
+        <div class="hero-container">
+            <h1 class="hero-title fade-up">My Portfolio</h1>
+            <p class="hero-subtitle fade-up">523+ Articles Across Multiple Industries</p>
+            <p class="hero-description fade-up">
+                Explore my collection of published articles covering technology, health, crime, entertainment, and cultural topics. Each piece crafted to inform, engage, and inspire action.
+            </p>
+        </div>
+    </section>
+
+    <!-- Portfolio Stats -->
+    <section class="portfolio-stats">
+        <div class="stats-container">
+            <div class="stat-item fade-up">
+                <div class="stat-number" data-count="523">0</div>
+                <div class="stat-label">Articles Published</div>
+            </div>
+            <div class="stat-item fade-up">
+                <div class="stat-number" data-count="7">0</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item fade-up">
+                <div class="stat-number" data-count="15">0</div>
+                <div class="stat-label">Industries Covered</div>
+            </div>
+            <div class="stat-item fade-up">
+                <div class="stat-number" data-count="95">0</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <div class="filter-header fade-up">
+                <h2 class="filter-title">Browse Articles</h2>
+                <div class="search-box">
+                    <input type="text" id="portfolio-search" class="search-input" placeholder="Search articles...">
+                </div>
+            </div>
+            
+            <div class="filter-buttons fade-up">
+                <button class="filter-btn active" data-filter="all">All Articles</button>
+                <button class="filter-btn" data-filter="technology">Technology</button>
+                <button class="filter-btn" data-filter="health">Health</button>
+                <button class="filter-btn" data-filter="crime">Crime</button>
+                <button class="filter-btn" data-filter="entertainment">Entertainment</button>
+                <button class="filter-btn" data-filter="culture">Culture</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio-grid">
+        <div class="section-container">
+            <div class="grid-container">
+                <!-- Technology Articles -->
+                <article class="portfolio-item fade-up" data-category="technology">
+                    <img src="https://kimi-web-img.moonshot.cn/img/innovation.media/28a079790753e4edd976d0a85fff3a85c1cc7a0c.png" alt="Blockchain Technology" class="item-image">
+                    <div class="item-content">
+                        <span class="item-category">Technology</span>
+                        <h3 class="item-title">Blockchain Basics: How to Integrate This Technology into Your Business</h3>
+                        <p class="item-excerpt">Exploring the transformative potential of blockchain technology across various industries, from cryptocurrency foundations to practical business applications.</p>
+                        <div class="item-meta">
+                            <span class="read-time">5 min read</span>
+                            <span class="publish-date">Jan 13, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Health Articles -->
+                <article class="portfolio-item fade-up" data-category="health">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.angelnavarroblog.com/d7f89b382a44351002b937b459168552eba31106.jpg" alt="Health Research" class="item-image">
+                    <div class="item-content">
+                        <span class="item-category">Health</span>
+                        <h3 class="item-title">Shocking Truth: Oral Sex and HPV Are Causing Surge In Throat Cancer</h3>
+                        <p class="item-excerpt">Investigating the rising incidence of oropharyngeal cancer and its connection to HPV, providing crucial health insights for modern readers.</p>
+                        <div class="item-meta">
+                            <span class="read-time">7 min read</span>
+                            <span class="publish-date">Jan 12, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Crime Articles -->
+                <article class="portfolio-item fade-up" data-category="crime">
+                    <img src="https://kimi-web-img.moonshot.cn/img/interiordesign.net/fcd654c85f0d6e2747b43dcfc7adf2de7a3c3962.jpg" alt="Crime Investigation" class="item-image">
+                    <div class="item-content">
+                        <span class="item-category">Crime</span>
+                        <h3 class="item-title">Four Chinese Yahoo Boys Arrested By EFCC in Internet Fraud Crackdown</h3>
+                        <p class="item-excerpt">Breaking down the latest EFCC operation targeting internet fraud, highlighting the international scope of cybercrime enforcement.</p>
+                        <div class="item-meta">
+                            <span class="read-time">4 min read</span>
+                            <span class="publish-date">Jan 11, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Entertainment Articles -->
+                <article class="portfolio-item fade-up" data-category="entertainment">
+                    <img src="https://kimi-web-img.moonshot.cn/img/preview.redd.it/3ad372ed94369cb5091a3356b383a4b6f4ae63c8.jpg" alt="Music Industry" class="item-image">
+                    <div class="item-content">
+                        <span class="item-category">Entertainment</span>
+                        <h3 class="item-title">Doja Cat and Cardi B: Billboard's Latest Rankings</h3>
+                        <p class="item-excerpt">Analyzing Doja Cat's rise to become the second highest-selling female rapper in history and what it means for the music industry.</p>
+                        <div class="item-meta">
+                            <span class="read-time">6 min read</span>
+                            <span class="publish-date">Jan 11, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Culture Articles -->
+                <article class="portfolio-item fade-up" data-category="culture">
+                    <img src="https://kimi-web-img.moonshot.cn/img/dspncdn.com/0a7c56686c1f8507f6394db52ddcdecf54f4cbcd.jpg" alt="Nigerian Culture" class="item-image">
+                    <div class="item-content">
+                        <span class="item-category">Culture</span>
+                        <h3 class="item-title">Oxford English Dictionary Adds Japa, Gele, Yahoo boy and 19 Other Nigerian Words</h3>
+                        <p class="item-excerpt">Celebrating the recognition of Nigerian English in the Oxford Dictionary and what it means for global linguistic diversity.</p>
+                        <div class="item-meta">
+                            <span class="read-time">5 min read</span>
+                            <span class="publish-date">Jan 10, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Business Articles -->
+                <article class="portfolio-item fade-up" data-category="business">
+                    <img src="https://kimi-web-img.moonshot.cn/img/gustavconcept.com/5a3487039369edcb26896dcb6fddb183f4c768cc.jpg" alt="Business Strategy" class="item-image">
+                    <div class="item-content">
+                        <span class="item-category">Business</span>
+                        <h3 class="item-title">NAFDAC Unveils Five Strategic Pillars to Strengthen Regulatory Operations in 2025</h3>
+                        <p class="item-excerpt">Examining NAFDAC's strategic roadmap for 2025 and its impact on food and drug safety regulations in Nigeria.</p>
+                        <div class="item-meta">
+                            <span class="read-time">4 min read</span>
+                            <span class="publish-date">Jan 11, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Additional Technology Article -->
+                <article class="portfolio-item fade-up hidden" data-category="technology">
+                    <img src="https://kimi-web-img.moonshot.cn/img/gridfiti.com/e103ef4e28da56fcf2f4b8b247c817189bddc7d7.jpg" alt="AI Technology" class="item-image">
+                    <div class="item-content">
+                        <span class="item-category">Technology</span>
+                        <h3 class="item-title">The Future of AI in Content Creation: Opportunities and Challenges</h3>
+                        <p class="item-excerpt">Exploring how artificial intelligence is transforming content creation and what it means for writers and marketers.</p>
+                        <div class="item-meta">
+                            <span class="read-time">8 min read</span>
+                            <span class="publish-date">Jan 9, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Additional Health Article -->
+                <article class="portfolio-item fade-up hidden" data-category="health">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/bdebf0fd471cbf5d2f2fca2053346016136c4124.jpg" alt="Mental Health" class="item-image">
+                    <div class="item-content">
+                        <span class="item-category">Health</span>
+                        <h3 class="item-title">Digital Detox: The Mental Health Benefits of Unplugging</h3>
+                        <p class="item-excerpt">Investigating the psychological benefits of reducing screen time and practical strategies for digital wellness.</p>
+                        <div class="item-meta">
+                            <span class="read-time">6 min read</span>
+                            <span class="publish-date">Jan 8, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Additional Crime Article -->
+                <article class="portfolio-item fade-up hidden" data-category="crime">
+                    <img src="https://kimi-web-img.moonshot.cn/img/t3.ftcdn.net/8423dc8554243f531bf3899dff2ed64f568f1bd8.jpg" alt="Cybersecurity" class="item-image">
+                    <div class="item-content">
+                        <span class="item-category">Crime</span>
+                        <h3 class="item-title">Rise of Ransomware: Protecting Your Business in 2025</h3>
+                        <p class="item-excerpt">Analyzing the latest ransomware trends and providing actionable security measures for businesses.</p>
+                        <div class="item-meta">
+                            <span class="read-time">9 min read</span>
+                            <span class="publish-date">Jan 7, 2025</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Load More Section -->
+    <section class="load-more-section">
+        <button class="load-more-btn fade-up" onclick="loadMoreArticles()">Load More Articles</button>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="article-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <div class="modal-category" id="modal-category">Technology</div>
+                <h2 class="modal-title" id="modal-title">Article Title</h2>
+            </div>
+            <div class="modal-body">
+                <img id="modal-image" src="" alt="Article Image" class="modal-image">
+                <div class="modal-text" id="modal-content">
+                    Article content will be loaded here...
+                </div>
+                <div class="modal-actions">
+                    <a href="#" class="btn btn-primary" onclick="shareArticle()">Share Article</a>
+                    <a href="contact.html" class="btn btn-secondary">Similar Work</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <span>in</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <span>tw</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Email">
+                    <span>✉</span>
+                </a>
+            </div>
+            <p class="copyright">
+                © 2025 Elizabeth Efeelobari. All rights reserved. Crafted with passion for storytelling.
+            </p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Additional portfolio-specific functionality
+        
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.dataset.count);
+                animateCounter(counter, target);
+            });
+        }
+        
+        // Load more articles functionality
+        function loadMoreArticles() {
+            const hiddenItems = document.querySelectorAll('.portfolio-item.hidden');
+            const itemsToShow = Array.from(hiddenItems).slice(0, 3);
+            
+            itemsToShow.forEach(item => {
+                item.classList.remove('hidden');
+                anime({
+                    targets: item,
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 600,
+                    easing: 'easeOutCubic'
+                });
+            });
+            
+            if (hiddenItems.length <= 3) {
+                document.querySelector('.load-more-btn').style.display = 'none';
+            }
+        }
+        
+        // Modal functionality
+        function openModal(articleData) {
+            const modal = document.getElementById('article-modal');
+            document.getElementById('modal-category').textContent = articleData.category;
+            document.getElementById('modal-title').textContent = articleData.title;
+            document.getElementById('modal-image').src = articleData.image;
+            document.getElementById('modal-content').innerHTML = articleData.content;
+            
+            modal.style.display = 'block';
+            
+            anime({
+                targets: '.modal-content',
+                scale: [0.8, 1],
+                opacity: [0, 1],
+                duration: 400,
+                easing: 'easeOutCubic'
+            });
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('article-modal');
+            
+            anime({
+                targets: '.modal-content',
+                scale: [1, 0.8],
+                opacity: [1, 0],
+                duration: 300,
+                easing: 'easeInCubic',
+                complete: () => {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+        
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: document.getElementById('modal-title').textContent,
+                    text: 'Check out this article by Elizabeth Efeelobari',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(window.location.href);
+                alert('Article link copied to clipboard!');
+            }
+        }
+        
+        // Add click handlers to portfolio items
+        document.addEventListener('DOMContentLoaded', function() {
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            portfolioItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const category = this.querySelector('.item-category').textContent;
+                    const title = this.querySelector('.item-title').textContent;
+                    const image = this.querySelector('.item-image').src;
+                    const excerpt = this.querySelector('.item-excerpt').textContent;
+                    
+                    const articleData = {
+                        category: category,
+                        title: title,
+                        image: image,
+                        content: `
+                            <p>${excerpt}</p>
+                            <p>This article represents my commitment to thorough research and engaging storytelling. Each piece I write undergoes extensive fact-checking and is crafted to provide maximum value to readers while maintaining the highest journalistic standards.</p>
+                            <p>The content explores complex topics in an accessible way, ensuring that readers from all backgrounds can understand and benefit from the information presented. My approach combines investigative rigor with compelling narrative techniques.</p>
+                            <p>If you're interested in similar content or would like to discuss how I can help with your content needs, please don't hesitate to reach out through the contact form.</p>
+                        `
+                    };
+                    
+                    openModal(articleData);
+                });
+            });
+            
+            // Close modal when clicking outside
+            document.getElementById('article-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+            
+            // Animate counters when they come into view
+            const statsSection = document.querySelector('.portfolio-stats');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+    </script>
+</body>
+</html>

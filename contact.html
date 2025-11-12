@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Elizabeth Efeelobari - Professional Writing Services</title>
+    <meta name="description" content="Get in touch with Elizabeth Efeelobari for professional writing services, content creation, and journalism projects. Let's discuss your next project.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-dark: #1a1a1a;
+            --primary-light: #f8f6f0;
+            --accent-coral: #d4a574;
+            --accent-sage: #8b9a8b;
+            --accent-lavender: #c8b5d1;
+            --warm-gray: #9b9b9b;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 246, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-coral);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-coral);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .contact-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #f0ede5 100%);
+            text-align: center;
+        }
+        
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--accent-coral);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 2rem;
+            background: var(--primary-light);
+        }
+        
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            padding: 2rem;
+        }
+        
+        .info-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .info-text {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-3px);
+        }
+        
+        .method-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-coral) 0%, #c19660 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .method-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--primary-dark);
+        }
+        
+        .method-content p {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(26, 26, 26, 0.08);
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .form-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .form-subtitle {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 2rem;
+        }
+        
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background: #f0ede5;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-coral) 0%, #c19660 100%);
+            border-radius: 3px;
+            width: 25%;
+            transition: width 0.4s ease;
+        }
+        
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+        }
+        
+        /* Form Steps */
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+        }
+        
+        .step-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid #f0ede5;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: white;
+            outline: none;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: var(--accent-coral);
+        }
+        
+        .form-input.error,
+        .form-select.error,
+        .form-textarea.error {
+            border-color: #e74c3c;
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-radio-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        
+        .form-radio-item {
+            position: relative;
+        }
+        
+        .form-radio {
+            position: absolute;
+            opacity: 0;
+        }
+        
+        .form-radio-label {
+            display: block;
+            padding: 0.875rem;
+            border: 2px solid #f0ede5;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-radio:checked + .form-radio-label {
+            border-color: var(--accent-coral);
+            background: rgba(212, 165, 116, 0.1);
+            color: var(--accent-coral);
+        }
+        
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-coral) 0%, #c19660 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--accent-sage);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--accent-sage);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        
+        /* Success Message */
+        .success-message {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-coral) 0%, #c19660 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .success-message h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+        
+        .success-message p {
+            color: var(--warm-gray);
+            font-size: 1.1rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #f0ede5 0%, var(--primary-light) 100%);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-dark);
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.08);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #f8f6f0;
+        }
+        
+        .faq-icon {
+            font-size: 1.2rem;
+            color: var(--accent-coral);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 200px;
+        }
+        
+        .faq-answer p {
+            color: var(--warm-gray);
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--primary-light);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(248, 246, 240, 0.1);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-coral);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-up.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .form-radio-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Elizabeth Efeelobari</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="hero-container">
+            <h1 class="hero-title fade-up">Let's Work Together</h1>
+            <p class="hero-subtitle fade-up">Ready to Bring Your Story to Life</p>
+            <p class="hero-description fade-up">
+                Whether you need compelling content, investigative reporting, or strategic content marketing, I'm here to help. Let's discuss your project and create something amazing together.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <!-- Contact Info -->
+            <div class="contact-info fade-up">
+                <h2 class="info-title">Get in Touch</h2>
+                <p class="info-text">
+                    I believe great content starts with great communication. Whether you're looking for regular content creation, a one-off project, or just want to explore possibilities, I'd love to hear from you.
+                </p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="method-icon">📧</div>
+                        <div class="method-content">
+                            <h3>Email</h3>
+                            <p>elizabeth@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">💬</div>
+                        <div class="method-content">
+                            <h3>Response Time</h3>
+                            <p>Within 24 hours</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">🌍</div>
+                        <div class="method-content">
+                            <h3>Timezone</h3>
+                            <p>WAT (UTC+1)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">⚡</div>
+                        <div class="method-content">
+                            <h3>Availability</h3>
+                            <p>Monday - Friday</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form fade-up">
+                <div class="form-header">
+                    <h2 class="form-title">Start Your Project</h2>
+                    <p class="form-subtitle">Tell me about your content needs</p>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <div class="progress-steps">
+                        <span>Basic Info</span>
+                        <span>Project Details</span>
+                        <span>Budget</span>
+                        <span>Review</span>
+                    </div>
+                </div>
+
+                <form id="contact-form">
+                    <!-- Step 1: Basic Information -->
+                    <div class="form-step active">
+                        <h3 class="step-title">Basic Information</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="company">Company/Organization</label>
+                            <input type="text" id="company" name="company" class="form-input">
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <div></div>
+                            <button type="button" class="btn btn-primary next-step">
+                                Next Step
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Project Details -->
+                    <div class="form-step">
+                        <h3 class="step-title">Project Details</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Project Type *</label>
+                            <div class="form-radio-group">
+                                <div class="form-radio-item">
+                                    <input type="radio" id="blog-content" name="project-type" value="blog-content" class="form-radio" required>
+                                    <label for="blog-content" class="form-radio-label">Blog Content</label>
+                                </div>
+                                <div class="form-radio-item">
+                                    <input type="radio" id="investigative" name="project-type" value="investigative" class="form-radio">
+                                    <label for="investigative" class="form-radio-label">Investigative Reporting</label>
+                                </div>
+                                <div class="form-radio-item">
+                                    <input type="radio" id="content-strategy" name="project-type" value="content-strategy" class="form-radio">
+                                    <label for="content-strategy" class="form-radio-label">Content Strategy</label>
+                                </div>
+                                <div class="form-radio-item">
+                                    <input type="radio" id="ghostwriting" name="project-type" value="ghostwriting" class="form-radio">
+                                    <label for="ghostwriting" class="form-radio-label">Ghostwriting</label>
+                                </div>
+                                <div class="form-radio-item">
+                                    <input type="radio" id="social-media" name="project-type" value="social-media" class="form-radio">
+                                    <label for="social-media" class="form-radio-label">Social Media</label>
+                                </div>
+                                <div class="form-radio-item">
+                                    <input type="radio" id="other" name="project-type" value="other" class="form-radio">
+                                    <label for="other" class="form-radio-label">Other</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="timeline">Project Timeline</label>
+                            <select id="timeline" name="timeline" class="form-select">
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP (Rush fee applies)</option>
+                                <option value="1-week">Within 1 week</option>
+                                <option value="2-weeks">Within 2 weeks</option>
+                                <option value="1-month">Within 1 month</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="message">Project Description *</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project, goals, target audience, and any specific requirements..." required></textarea>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-secondary prev-step">
+                                <span>←</span>
+                                Previous
+                            </button>
+                            <button type="button" class="btn btn-primary next-step">
+                                Next Step
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Budget -->
+                    <div class="form-step">
+                        <h3 class="step-title">Budget & Scope</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Budget Range *</label>
+                            <div class="form-radio-group">
+                                <div class="form-radio-item">
+                                    <input type="radio" id="budget-1" name="budget" value="500-1000" class="form-radio" required>
+                                    <label for="budget-1" class="form-radio-label">$500 - $1,000</label>
+                                </div>
+                                <div class="form-radio-item">
+                                    <input type="radio" id="budget-2" name="budget" value="1000-2500" class="form-radio">
+                                    <label for="budget-2" class="form-radio-label">$1,000 - $2,500</label>
+                                </div>
+                                <div class="form-radio-item">
+                                    <input type="radio" id="budget-3" name="budget" value="2500-5000" class="form-radio">
+                                    <label for="budget-3" class="form-radio-label">$2,500 - $5,000</label>
+                                </div>
+                                <div class="form-radio-item">
+                                    <input type="radio" id="budget-4" name="budget" value="5000+" class="form-radio">
+                                    <label for="budget-4" class="form-radio-label">$5,000+</label>
+                                </div>
+                                <div class="form-radio-item">
+                                    <input type="radio" id="budget-discuss" name="budget" value="discuss" class="form-radio">
+                                    <label for="budget-discuss" class="form-radio-label">Let's Discuss</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="word-count">Approximate Word Count</label>
+                            <select id="word-count" name="word-count" class="form-select">
+                                <option value="">Select word count</option>
+                                <option value="500-1000">500 - 1,000 words</option>
+                                <option value="1000-2000">1,000 - 2,000 words</option>
+                                <option value="2000-5000">2,000 - 5,000 words</option>
+                                <option value="5000+">5,000+ words</option>
+                                <option value="ongoing">Ongoing project</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="additional-info">Additional Information</label>
+                            <textarea id="additional-info" name="additional-info" class="form-textarea" placeholder="Any additional details, special requirements, or questions you'd like to add..."></textarea>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-secondary prev-step">
+                                <span>←</span>
+                                Previous
+                            </button>
+                            <button type="button" class="btn btn-primary next-step">
+                                Review
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Review & Submit -->
+                    <div class="form-step">
+                        <h3 class="step-title">Review Your Information</h3>
+                        
+                        <div id="form-review" class="form-group">
+                            <!-- Review content will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-secondary prev-step">
+                                <span>←</span>
+                                Previous
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                Send Message
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="section-title fade-up">Frequently Asked Questions</h2>
+            
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What's your typical turnaround time?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Turnaround times vary depending on the project scope and complexity. Blog posts typically take 3-5 business days, while investigative pieces may require 1-2 weeks. I always provide a detailed timeline during our initial consultation.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you offer revisions?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! I include two rounds of revisions in all my projects. My goal is to ensure you're completely satisfied with the final content. Additional revisions can be arranged if needed.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What industries do you write about?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>I specialize in technology, health, crime reporting, entertainment, and culture, but I'm always open to exploring new topics. My research skills allow me to quickly become knowledgeable in unfamiliar subjects.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do you ensure content quality?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Every piece goes through thorough research, fact-checking, and editing processes. I also optimize content for SEO while maintaining readability and engagement. Quality is my top priority.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-up">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you offer content strategy services?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely! I help clients develop comprehensive content strategies, including editorial calendars, content audits, and distribution plans. This ensures your content aligns with your business goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <span>in</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <span>tw</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Email">
+                    <span>✉</span>
+                </a>
+            </div>
+            <p class="copyright">
+                © 2025 Elizabeth Efeelobari. All rights reserved. Crafted with passion for storytelling.
+            </p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // FAQ Toggle Functionality
+        function toggleFAQ(button) {
+            const faqItem = button.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+        
+        // Form Review Functionality
+        function updateFormReview() {
+            const formData = new FormData(document.getElementById('contact-form'));
+            const reviewContainer = document.getElementById('form-review');
+            
+            let reviewHTML = '<div style="background: #f8f6f0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem;">';
+            
+            // Basic Info
+            reviewHTML += '<h4 style="margin-bottom: 1rem; color: var(--primary-dark);">Contact Information</h4>';
+            reviewHTML += `<p><strong>Name:</strong> ${formData.get('name') || 'Not provided'}</p>`;
+            reviewHTML += `<p><strong>Email:</strong> ${formData.get('email') || 'Not provided'}</p>`;
+            reviewHTML += `<p><strong>Company:</strong> ${formData.get('company') || 'Not provided'}</p>`;
+            
+            // Project Details
+            reviewHTML += '<h4 style="margin: 1.5rem 0 1rem; color: var(--primary-dark);">Project Details</h4>';
+            reviewHTML += `<p><strong>Project Type:</strong> ${formData.get('project-type') || 'Not selected'}</p>`;
+            reviewHTML += `<p><strong>Timeline:</strong> ${formData.get('timeline') || 'Not specified'}</p>`;
+            reviewHTML += `<p><strong>Description:</strong> ${formData.get('message') || 'Not provided'}</p>`;
+            
+            // Budget
+            reviewHTML += '<h4 style="margin: 1.5rem 0 1rem; color: var(--primary-dark);">Budget & Scope</h4>';
+            reviewHTML += `<p><strong>Budget Range:</strong> ${formData.get('budget') || 'Not specified'}</p>`;
+            reviewHTML += `<p><strong>Word Count:</strong> ${formData.get('word-count') || 'Not specified'}</p>`;
+            
+            reviewHTML += '</div>';
+            
+            reviewContainer.innerHTML = reviewHTML;
+        }
+        
+        // Enhanced form functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+            const steps = document.querySelectorAll('.form-step');
+            const nextBtns = document.querySelectorAll('.next-step');
+            const prevBtns = document.querySelectorAll('.prev-step');
+            const progressBar = document.querySelector('.progress-bar');
+            let currentStep = 0;
+            
+            function updateProgress() {
+                const progress = ((currentStep + 1) / steps.length) * 100;
+                progressBar.style.width = progress + '%';
+            }
+            
+            function showStep(stepIndex) {
+                steps.forEach((step, index) => {
+                    step.classList.toggle('active', index === stepIndex);
+                });
+                updateProgress();
+                
+                // Update review step
+                if (stepIndex === 3) {
+                    updateFormReview();
+                }
+            }
+            
+            function validateStep(stepIndex) {
+                const currentStepElement = steps[stepIndex];
+                const requiredFields = currentStepElement.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.classList.add('error');
+                        isValid = false;
+                    } else {
+                        field.classList.remove('error');
+                    }
+                });
+                
+                // Special validation for radio groups
+                if (stepIndex === 1) {
+                    const projectType = document.querySelector('input[name="project-type"]:checked');
+                    if (!projectType) {
+                        isValid = false;
+                        // Add visual feedback for radio group
+                    }
+                }
+                
+                if (stepIndex === 2) {
+                    const budget = document.querySelector('input[name="budget"]:checked');
+                    if (!budget) {
+                        isValid = false;
+                        // Add visual feedback for radio group
+                    }
+                }
+                
+                return isValid;
+            }
+            
+            nextBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (validateStep(currentStep)) {
+                        currentStep++;
+                        if (currentStep < steps.length) {
+                            showStep(currentStep);
+                            
+                            anime({
+                                targets: steps[currentStep],
+                                opacity: [0, 1],
+                                translateX: [50, 0],
+                                duration: 400,
+                                easing: 'easeOutCubic'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            prevBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentStep--;
+                    if (currentStep >= 0) {
+                        showStep(currentStep);
+                        
+                        anime({
+                            targets: steps[currentStep],
+                            opacity: [0, 1],
+                            translateX: [-50, 0],
+                            duration: 400,
+                            easing: 'easeOutCubic'
+                        });
+                    }
+                });
+            });
+            
+            // Form submission
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Animate form submission
+                anime({
+                    targets: '.contact-form',
+                    scale: [1, 0.98, 1],
+                    duration: 600,
+                    easing: 'easeInOutQuad',
+                    complete: () => {
+                        // Show success message
+                        const successHTML = `
+                            <div class="success-message">
+                                <div class="success-icon">✓</div>
+                                <h3>Thank you for your message!</h3>
+                                <p>I'll get back to you within 24 hours to discuss your project.</p>
+                            </div>
+                        `;
+                        
+                        document.querySelector('.contact-form').innerHTML = successHTML;
+                        
+                        anime({
+                            targets: '.success-message',
+                            opacity: [0, 1],
+                            translateY: [30, 0],
+                            duration: 800,
+                            easing: 'easeOutCubic'
+                        });
+                    }
+                });
+            });
+            
+            // Real-time validation
+            document.querySelectorAll('.form-input, .form-textarea').forEach(field => {
+                field.addEventListener('blur', () => {
+                    if (field.hasAttribute('required') && !field.value.trim()) {
+                        field.classList.add('error');
+                    } else {
+                        field.classList.remove('error');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

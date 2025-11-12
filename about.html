@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Elizabeth Efeelobari - Professional Writer & Journalist</title>
+    <meta name="description" content="Learn about Elizabeth Efeelobari's 7+ years of experience in writing, SEO, content creation, and investigative journalism across multiple industries.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.0/echarts.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-dark: #1a1a1a;
+            --primary-light: #f8f6f0;
+            --accent-coral: #d4a574;
+            --accent-sage: #8b9a8b;
+            --accent-lavender: #c8b5d1;
+            --warm-gray: #9b9b9b;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 246, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-coral);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-coral);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .about-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #f0ede5 100%);
+            text-align: center;
+        }
+        
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--accent-coral);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Story Section */
+        .story-section {
+            padding: 6rem 2rem;
+            background: var(--primary-light);
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        
+        .story-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .story-content p {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .story-image {
+            position: relative;
+        }
+        
+        .story-image img {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(26, 26, 26, 0.1);
+        }
+        
+        /* Skills Chart Section */
+        .skills-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #f0ede5 0%, var(--primary-light) 100%);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-dark);
+        }
+        
+        .skills-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(26, 26, 26, 0.08);
+        }
+        
+        #skills-chart {
+            width: 100%;
+            height: 400px;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        .skill-percentage {
+            font-weight: 600;
+            color: var(--accent-coral);
+        }
+        
+        .skill-bar {
+            width: 100%;
+            height: 6px;
+            background: #f0ede5;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-coral) 0%, #c19660 100%);
+            border-radius: 3px;
+            transition: width 2s ease;
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            padding: 6rem 2rem;
+            background: var(--primary-light);
+        }
+        
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-coral);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.08);
+            width: 45%;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 10%;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 10%;
+        }
+        
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-coral);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .timeline-description {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-coral);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        
+        /* Philosophy Section */
+        .philosophy-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #f0ede5 0%, var(--primary-light) 100%);
+        }
+        
+        .philosophy-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .philosophy-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+        
+        .philosophy-text {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        
+        .philosophy-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .value-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.08);
+        }
+        
+        .value-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .value-description {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: var(--primary-dark);
+            color: var(--primary-light);
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-coral) 0%, #c19660 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--primary-light);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(248, 246, 240, 0.1);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-coral);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-up.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        
+        .fade-in.animate-in {
+            opacity: 1;
+        }
+        
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+        
+        .slide-left.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+        
+        .slide-right.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 50px;
+            }
+            
+            .timeline-content {
+                width: 100% !important;
+                margin: 0 !important;
+            }
+            
+            .timeline-dot {
+                left: 20px !important;
+            }
+            
+            .philosophy-values {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Elizabeth Efeelobari</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-container">
+            <h1 class="hero-title fade-up">About Elizabeth</h1>
+            <p class="hero-subtitle fade-up">7+ Years of Crafting Stories That Matter</p>
+            <p class="hero-description fade-up">
+                From courtroom dramas to blockchain breakthroughs, I've spent over seven years transforming complex topics into compelling narratives that inform, engage, and inspire action.
+            </p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="section-container">
+            <div class="story-grid">
+                <div class="story-content slide-left">
+                    <h2>My Journey</h2>
+                    <p>
+                        My writing journey began with a fascination for the intersection of law, technology, and human stories. What started as curiosity about how legal systems adapt to technological change evolved into a comprehensive exploration of how innovation shapes our world.
+                    </p>
+                    <p>
+                        Over the years, I've had the privilege of covering everything from high-profile court cases to breakthrough medical research, always with the same goal: making complex topics accessible without sacrificing depth or accuracy.
+                    </p>
+                    <p>
+                        Today, I specialize in creating content that not only informs but drives real engagement and results for publications and brands across multiple industries.
+                    </p>
+                </div>
+                <div class="story-image slide-right">
+                    <img src="https://kimi-web-img.moonshot.cn/img/stock.pincel.app/0c4129d4ec7d68b2abaebf1dae89ae8c72fc3f3c.jpg" alt="Elizabeth Efeelobari" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="section-container">
+            <h2 class="section-title fade-up">Writing Expertise</h2>
+            <div class="skills-container">
+                <div class="chart-container fade-up">
+                    <div id="skills-chart"></div>
+                </div>
+                <div class="skills-list fade-up">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">SEO Writing</span>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Investigative Reporting</span>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Content Strategy</span>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Social Media Management</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Ghostwriting</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Feature Writing</span>
+                            <span class="skill-percentage">94%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 94%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="section-container">
+            <h2 class="section-title fade-up">Professional Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-title">Senior Content Creator</div>
+                        <div class="timeline-description">
+                            Leading content strategy for Report Afrique, covering breaking news across technology, health, and crime beats with a focus on investigative reporting.
+                        </div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-title">Freelance Expansion</div>
+                        <div class="timeline-description">
+                            Expanded into ghostwriting and content strategy, working with tech startups and healthcare organizations to develop their brand voice and content marketing.
+                        </div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-title">Specialized Reporting</div>
+                        <div class="timeline-description">
+                            Developed expertise in health and technology reporting, covering medical breakthroughs and digital transformation stories for major publications.
+                        </div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <div class="timeline-title">Professional Writing Career</div>
+                        <div class="timeline-description">
+                            Started professional writing career focusing on legal and business topics, quickly expanding into investigative journalism and feature writing.
+                        </div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy-section">
+        <div class="philosophy-container">
+            <h2 class="section-title fade-up">My Writing Philosophy</h2>
+            <blockquote class="philosophy-quote fade-up">
+                "Every story has the power to inform, inspire, and ignite change. My role is to find that spark and make it accessible to everyone."
+            </blockquote>
+            <p class="philosophy-text fade-up">
+                I believe in the power of storytelling to bridge gaps between complex subjects and everyday understanding. Whether I'm writing about blockchain technology or health breakthroughs, my approach remains the same: thorough research, clear communication, and compelling narrative.
+            </p>
+            <p class="philosophy-text fade-up">
+                In an age of information overload, I strive to create content that not only informs but also engages and inspires action. Every piece I write is crafted with the reader in mind, ensuring that even the most technical topics become accessible and meaningful.
+            </p>
+            
+            <div class="philosophy-values">
+                <div class="value-item fade-up">
+                    <div class="value-icon">🔍</div>
+                    <div class="value-title">Thorough Research</div>
+                    <div class="value-description">Every article is backed by extensive research and fact-checking to ensure accuracy and credibility.</div>
+                </div>
+                
+                <div class="value-item fade-up">
+                    <div class="value-icon">🎯</div>
+                    <div class="value-title">Reader-Focused</div>
+                    <div class="value-description">Complex topics are broken down into digestible, engaging content that resonates with diverse audiences.</div>
+                </div>
+                
+                <div class="value-item fade-up">
+                    <div class="value-icon">⚡</div>
+                    <div class="value-title">Results-Driven</div>
+                    <div class="value-description">Content is crafted not just to inform, but to drive engagement, action, and measurable results.</div>
+                </div>
+                
+                <div class="value-item fade-up">
+                    <div class="value-icon">🤝</div>
+                    <div class="value-title">Collaborative Approach</div>
+                    <div class="value-description">Working closely with clients and editors to ensure every piece meets and exceeds expectations.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="section-container">
+            <h2 class="cta-title fade-up">Ready to Work Together?</h2>
+            <p class="cta-description fade-up">
+                Whether you need investigative reporting, content strategy, or compelling storytelling, I'm here to help bring your vision to life.
+            </p>
+            <div class="fade-up">
+                <a href="contact.html" class="btn btn-primary">
+                    Start a Conversation
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <span>in</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <span>tw</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Email">
+                    <span>✉</span>
+                </a>
+            </div>
+            <p class="copyright">
+                © 2025 Elizabeth Efeelobari. All rights reserved. Crafted with passion for storytelling.
+            </p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
